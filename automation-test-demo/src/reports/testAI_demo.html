@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test AI Demo Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test AI Demo Report</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>步骤</th>
+                <th>描述</th>
+                <th>截图</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>打开Edge浏览器</td>
+                <td><img src="screenshots/step1.png" alt="打开Edge浏览器"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>输入JD.com网址</td>
+                <td><img src="screenshots/step2.png" alt="输入JD.com网址"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>点击登录，输入用户名和密码</td>
+                <td><img src="screenshots/step3.png" alt="输入用户名和密码"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>点击登录按钮</td>
+                <td><img src="screenshots/step4.png" alt="点击登录按钮"></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>处理弹窗</td>
+                <td><img src="screenshots/step5.png" alt="处理弹窗"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>登录成功后，搜索“手机”</td>
+                <td><img src="screenshots/step6.png" alt="搜索手机"></td>
+            </tr>
+        </tbody>
+    </table>
+    <p>测试完成时间: <span id="test-time"></span></p>
+    <script>
+        document.getElementById('test-time').innerText = new Date().toLocaleString();
+    </script>
+</body>
+</html>

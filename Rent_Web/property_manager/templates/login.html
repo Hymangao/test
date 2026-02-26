@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Login') }} - {{ _('Property Manager') }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <div class="card login-card">
+            <div class="card-body">
+                <h2 class="text-center mb-4"><i class="fas fa-building"></i> {{ _('Property Manager') }}</h2>
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.login_type.label(class="form-label") }}
+                        {{ form.login_type(class="form-select") }}
+                        {% if form.login_type.errors %}
+                            {% for error in form.login_type.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.identifier.label(class="form-label") }}
+                        {{ form.identifier(class="form-control", placeholder=_('Enter phone / username / WeChat ID')) }}
+                        {% if form.identifier.errors %}
+                            {% for error in form.identifier.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.auth_code.label(class="form-label") }}
+                        {{ form.auth_code(class="form-control", placeholder=_("Enter your verification code")) }}
+                        {% if form.auth_code.errors %}
+                            {% for error in form.auth_code.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    {{ form.submit(class="btn btn-primary w-100") }}
+                </form>
+                <div class="text-center mt-3">
+                    <small class="text-muted">{{ _('Contact administrator for authorization code') }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    margin-top: 50px;
+}
+</style>
+{% endblock %}

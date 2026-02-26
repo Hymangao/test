@@ -1,0 +1,216 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-01-08 13:03+0800\n"
+"PO-Revision-Date: 2026-01-08 11:57+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:6 templates/base.html:50 templates/login.html:3
+#: templates/login.html:10
+msgid "Property Manager"
+msgstr "物业管理系统"
+
+#: templates/base.html:58 templates/index.html:3 templates/index.html:7
+msgid "Properties"
+msgstr "房产"
+
+#: templates/base.html:61
+msgid "Landlord Contracts"
+msgstr "房东合同"
+
+#: templates/base.html:64
+msgid "Tenant Contracts"
+msgstr "租户合同"
+
+#: templates/base.html:67 templates/dashboard.html:3
+msgid "Dashboard"
+msgstr "仪表板"
+
+#: templates/base.html:70 templates/reminders.html:3
+msgid "Reminders"
+msgstr "提醒"
+
+#: templates/base.html:84
+msgid "Admin"
+msgstr "管理"
+
+#: templates/dashboard.html:6
+#, fuzzy
+msgid "Financial Dashboard"
+msgstr "仪表板"
+
+#: templates/dashboard.html:11
+#, fuzzy
+msgid "Monthly Income"
+msgstr "月租"
+
+#: templates/dashboard.html:14
+msgid "From tenant rent collections"
+msgstr "来自租户租金"
+
+#: templates/dashboard.html:20
+#, fuzzy
+msgid "Monthly Expenses"
+msgstr "月租"
+
+#: templates/dashboard.html:23
+msgid "Paid to landlords"
+msgstr "支付给房东"
+
+#: templates/dashboard.html:29
+#, fuzzy
+msgid "Net Profit"
+msgstr "编辑房产"
+
+#: templates/dashboard.html:32
+msgid "Income minus expenses"
+msgstr "收入减去支出"
+
+#: templates/dashboard.html:39
+msgid "Summary"
+msgstr "摘要"
+
+#: templates/dashboard.html:40
+msgid ""
+"This dashboard shows your current month's financial overview based on "
+"active contracts. Income is calculated from tenant contracts that are "
+"currently in effect, and expenses from landlord contracts."
+msgstr "此仪表板显示基于有效合同的本月财务概览。收入来自当前生效的租户合同，支出来自房东合同。"
+
+#: templates/index.html:8 templates/property_form.html:3
+#: templates/property_form.html:10
+msgid "Add Property"
+msgstr "添加房产"
+
+#: templates/index.html:20
+msgid "Type"
+msgstr "类型"
+
+#: templates/index.html:21
+msgid "Area"
+msgstr "面积"
+
+#: templates/index.html:22
+msgid "Bedrooms"
+msgstr "卧室"
+
+#: templates/index.html:23
+msgid "Bathrooms"
+msgstr "浴室"
+
+#: templates/index.html:26
+msgid "Monthly Rent"
+msgstr "月租"
+
+#: templates/index.html:27
+msgid "Status"
+msgstr "状态"
+
+#: templates/index.html:38
+msgid "Edit"
+msgstr "编辑"
+
+#: templates/index.html:39
+msgid "Are you sure?"
+msgstr "确定吗？"
+
+#: templates/index.html:39
+msgid "Delete"
+msgstr "删除"
+
+#: templates/index.html:51
+msgid "No Properties Yet"
+msgstr "还没有房产"
+
+#: templates/index.html:52
+msgid "Start by adding your first property to the system."
+msgstr "开始向系统添加您的第一个房产。"
+
+#: templates/index.html:53
+msgid "Add Your First Property"
+msgstr "添加您的第一个房产"
+
+#: templates/login.html:3
+msgid "Login"
+msgstr "登录"
+
+#: templates/login.html:15
+msgid "Enter your authorization code"
+msgstr "输入您的授权码"
+
+#: templates/login.html:25
+msgid "Contact administrator for authorization code"
+msgstr "联系管理员获取授权码"
+
+#: templates/manage_auth.html:3
+msgid "Manage Authorization Codes"
+msgstr "管理授权码"
+
+#: templates/manage_auth.html:10
+msgid "Generate New Authorization Code"
+msgstr "生成新的授权码"
+
+#: templates/manage_auth.html:50
+msgid "Existing Authorization Codes"
+msgstr "现有的授权码"
+
+#: templates/manage_auth.html:57
+msgid "Name"
+msgstr "姓名"
+
+#: templates/manage_auth.html:58
+msgid "Phone"
+msgstr "电话"
+
+#: templates/manage_auth.html:59
+msgid "Auth Code"
+msgstr "授权码"
+
+#: templates/manage_auth.html:60
+msgid "Expiry"
+msgstr "到期日期"
+
+#: templates/property_form.html:3 templates/property_form.html:10
+msgid "Edit Property"
+msgstr "编辑房产"
+
+#: templates/reminders.html:6
+#, fuzzy
+msgid "Upcoming Reminders"
+msgstr "提醒"
+
+#: templates/reminders.html:10
+#, fuzzy
+msgid "Tenant Rent Collections"
+msgstr "租户合同"
+
+#: templates/reminders.html:21
+msgid "No upcoming tenant rent collections in the next 7 days."
+msgstr "未来7天内没有租户租金催缴。"
+
+#: templates/reminders.html:25
+#, fuzzy
+msgid "Landlord Rent Payments"
+msgstr "房东合同"
+
+#: templates/reminders.html:36
+msgid "No upcoming landlord rent payments in the next 7 days."
+msgstr "未来7天内没有房东租金应付。"
+
+#: templates/reminders.html:42
+msgid "Reminders are shown for payments due within the next 7 days."
+msgstr "提醒显示未来7天内到期的付款。"
+

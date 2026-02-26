@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Dashboard') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Financial Dashboard') }}</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">{{ _('Monthly Income') }}</div>
+            <div class="card-body">
+                <h5 class="card-title">${{ "%.2f"|format(monthly_income) }}</h5>
+                <p class="card-text">{{ _('From tenant rent collections') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-header">{{ _('Monthly Expenses') }}</div>
+            <div class="card-body">
+                <h5 class="card-title">${{ "%.2f"|format(monthly_expenses) }}</h5>
+                <p class="card-text">{{ _('Paid to landlords') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-header">{{ _('Net Profit') }}</div>
+            <div class="card-body">
+                <h5 class="card-title">${{ "%.2f"|format(net_profit) }}</h5>
+                <p class="card-text">{{ _('Income minus expenses') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <h3>{{ _('Summary') }}</h3>
+    <p>{{ _('This dashboard shows your current month\'s financial overview based on active contracts. Income is calculated from tenant contracts that are currently in effect, and expenses from landlord contracts.') }}</p>
+</div>
+{% endblock %}

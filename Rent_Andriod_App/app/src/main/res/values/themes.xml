@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme for Compose apps -->
+    <style name="Base.Theme.SubLandlord" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Status bar color is set in Compose theme -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.SubLandlord" parent="Base.Theme.SubLandlord" />
+</resources>

@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Manage Authorization Codes') }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-key"></i> {{ _('Generate New Authorization Code') }}</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.name.label(class="form-label") }}
+                        {{ form.name(class="form-control") }}
+                        {% if form.name.errors %}
+                            {% for error in form.name.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.phone.label(class="form-label") }}
+                        {{ form.phone(class="form-control") }}
+                        {% if form.phone.errors %}
+                            {% for error in form.phone.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.username.label(class="form-label") }}
+                        {{ form.username(class="form-control") }}
+                        {% if form.username.errors %}
+                            {% for error in form.username.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.wechat_id.label(class="form-label") }}
+                        {{ form.wechat_id(class="form-control") }}
+                        {% if form.wechat_id.errors %}
+                            {% for error in form.wechat_id.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.id_number.label(class="form-label") }}
+                        {{ form.id_number(class="form-control") }}
+                        {% if form.id_number.errors %}
+                            {% for error in form.id_number.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label(class="form-label") }}
+                        {{ form.email(class="form-control") }}
+                        {% if form.email.errors %}
+                            {% for error in form.email.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.address.label(class="form-label") }}
+                        {{ form.address(class="form-control") }}
+                        {% if form.address.errors %}
+                            {% for error in form.address.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.emergency_contact_name.label(class="form-label") }}
+                                {{ form.emergency_contact_name(class="form-control") }}
+                                {% if form.emergency_contact_name.errors %}
+                                    {% for error in form.emergency_contact_name.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.emergency_contact_phone.label(class="form-label") }}
+                                {{ form.emergency_contact_phone(class="form-control") }}
+                                {% if form.emergency_contact_phone.errors %}
+                                    {% for error in form.emergency_contact_phone.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.date_of_birth.label(class="form-label") }}
+                                {{ form.date_of_birth(class="form-control") }}
+                                {% if form.date_of_birth.errors %}
+                                    {% for error in form.date_of_birth.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 form-check mt-4">
+                                {{ form.is_admin(class="form-check-input") }}
+                                {{ form.is_admin.label(class="form-check-label") }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.notes.label(class="form-label") }}
+                        {{ form.notes(class="form-control", rows="3") }}
+                        {% if form.notes.errors %}
+                            {% for error in form.notes.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-list"></i> {{ _('Existing Authorization Codes') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>{{ _('Name') }}</th>
+                                <th>{{ _('Phone') }}</th>
+                                <th>{{ _('Username') }}</th>
+                                <th>{{ _('WeChat ID') }}</th>
+                                <th>{{ _('Auth Code') }}</th>
+                                <th>{{ _('Expiry') }}</th>
+                                <th>{{ _('Status') }}</th>
+                                <th>{{ _('Actions') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for auth in auth_codes %}
+                            <tr>
+                                <td>{{ auth.name }}</td>
+                                <td>{{ auth.phone }}</td>
+                                <td>{{ auth.username or '-' }}</td>
+                                <td>{{ auth.wechat_id or '-' }}</td>
+                                <td><code>{{ auth.auth_code }}</code></td>
+                                <td>{{ auth.expiry_date }}</td>
+                                <td>
+                                    <span class="badge {{ 'bg-success' if auth.is_active else 'bg-secondary' }}">
+                                        {{ auth.is_active and _('Active') or _('Disabled') }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-danger" href="{{ url_for('delete_auth', id=auth.id) }}" onclick="return confirm('{{ _('Are you sure?') }}')">
+                                        {{ _('Delete') }}
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

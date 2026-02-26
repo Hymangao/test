@@ -1,0 +1,209 @@
+# English translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-01-08 13:03+0800\n"
+"PO-Revision-Date: 2026-01-08 11:57+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:6 templates/base.html:50 templates/login.html:3
+#: templates/login.html:10
+msgid "Property Manager"
+msgstr ""
+
+#: templates/base.html:58 templates/index.html:3 templates/index.html:7
+msgid "Properties"
+msgstr ""
+
+#: templates/base.html:61
+msgid "Landlord Contracts"
+msgstr ""
+
+#: templates/base.html:64
+msgid "Tenant Contracts"
+msgstr ""
+
+#: templates/base.html:67 templates/dashboard.html:3
+msgid "Dashboard"
+msgstr ""
+
+#: templates/base.html:70 templates/reminders.html:3
+msgid "Reminders"
+msgstr ""
+
+#: templates/base.html:84
+msgid "Admin"
+msgstr ""
+
+#: templates/dashboard.html:6
+msgid "Financial Dashboard"
+msgstr ""
+
+#: templates/dashboard.html:11
+msgid "Monthly Income"
+msgstr ""
+
+#: templates/dashboard.html:14
+msgid "From tenant rent collections"
+msgstr ""
+
+#: templates/dashboard.html:20
+msgid "Monthly Expenses"
+msgstr ""
+
+#: templates/dashboard.html:23
+msgid "Paid to landlords"
+msgstr ""
+
+#: templates/dashboard.html:29
+msgid "Net Profit"
+msgstr ""
+
+#: templates/dashboard.html:32
+msgid "Income minus expenses"
+msgstr ""
+
+#: templates/dashboard.html:39
+msgid "Summary"
+msgstr ""
+
+#: templates/dashboard.html:40
+msgid ""
+"This dashboard shows your current month's financial overview based on "
+"active contracts. Income is calculated from tenant contracts that are "
+"currently in effect, and expenses from landlord contracts."
+msgstr ""
+
+#: templates/index.html:8 templates/property_form.html:3
+#: templates/property_form.html:10
+msgid "Add Property"
+msgstr ""
+
+#: templates/index.html:20
+msgid "Type"
+msgstr ""
+
+#: templates/index.html:21
+msgid "Area"
+msgstr ""
+
+#: templates/index.html:22
+msgid "Bedrooms"
+msgstr ""
+
+#: templates/index.html:23
+msgid "Bathrooms"
+msgstr ""
+
+#: templates/index.html:26
+msgid "Monthly Rent"
+msgstr ""
+
+#: templates/index.html:27
+msgid "Status"
+msgstr ""
+
+#: templates/index.html:38
+msgid "Edit"
+msgstr ""
+
+#: templates/index.html:39
+msgid "Are you sure?"
+msgstr ""
+
+#: templates/index.html:39
+msgid "Delete"
+msgstr ""
+
+#: templates/index.html:51
+msgid "No Properties Yet"
+msgstr ""
+
+#: templates/index.html:52
+msgid "Start by adding your first property to the system."
+msgstr ""
+
+#: templates/index.html:53
+msgid "Add Your First Property"
+msgstr ""
+
+#: templates/login.html:3
+msgid "Login"
+msgstr ""
+
+#: templates/login.html:15
+msgid "Enter your authorization code"
+msgstr ""
+
+#: templates/login.html:25
+msgid "Contact administrator for authorization code"
+msgstr ""
+
+#: templates/manage_auth.html:3
+msgid "Manage Authorization Codes"
+msgstr ""
+
+#: templates/manage_auth.html:10
+msgid "Generate New Authorization Code"
+msgstr ""
+
+#: templates/manage_auth.html:50
+msgid "Existing Authorization Codes"
+msgstr ""
+
+#: templates/manage_auth.html:57
+msgid "Name"
+msgstr ""
+
+#: templates/manage_auth.html:58
+msgid "Phone"
+msgstr ""
+
+#: templates/manage_auth.html:59
+msgid "Auth Code"
+msgstr ""
+
+#: templates/manage_auth.html:60
+msgid "Expiry"
+msgstr ""
+
+#: templates/property_form.html:3 templates/property_form.html:10
+msgid "Edit Property"
+msgstr ""
+
+#: templates/reminders.html:6
+msgid "Upcoming Reminders"
+msgstr ""
+
+#: templates/reminders.html:10
+msgid "Tenant Rent Collections"
+msgstr ""
+
+#: templates/reminders.html:21
+msgid "No upcoming tenant rent collections in the next 7 days."
+msgstr ""
+
+#: templates/reminders.html:25
+msgid "Landlord Rent Payments"
+msgstr ""
+
+#: templates/reminders.html:36
+msgid "No upcoming landlord rent payments in the next 7 days."
+msgstr ""
+
+#: templates/reminders.html:42
+msgid "Reminders are shown for payments due within the next 7 days."
+msgstr ""
+

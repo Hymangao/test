@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Properties') }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="fas fa-home"></i> {{ _('Properties') }}</h1>
+    <a href="{{ url_for('add_property') }}" class="btn btn-primary"><i class="fas fa-plus"></i> {{ _('Add Property') }}</a>
+</div>
+
+<div class="row">
+    {% for property in properties %}
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ property.address or (property.province ~ ', ' ~ property.city ~ ', ' ~ property.district ~ ' ' ~ property.detailed_address) }}
+                </h5>
+                <div class="row">
+                    <div class="col-6">
+                        <strong>{{ _('Type') }}:</strong> {{ property.property_type.title() }}<br>
+                        <strong>{{ _('Area') }}:</strong> {{ property.area_sqm }} sqm<br>
+                        <strong>{{ _('Bedrooms') }}:</strong> {{ property.bedrooms }}<br>
+                        <strong>{{ _('Bathrooms') }}:</strong> {{ property.bathrooms }}
+                    </div>
+                    <div class="col-6">
+                        <strong>{{ _('Monthly Rent') }}:</strong> ${{ property.monthly_rent_to_tenant }}<br>
+                        <strong>{{ _('Status') }}:</strong>
+                        <span class="badge {% if property.status == 'vacant' %}bg-success{% else %}bg-warning{% endif %}">
+                            {{ property.status.title() }}
+                        </span>
+                    </div>
+                </div>
+                {% if property.description %}
+                <p class="mt-2"><em>{{ property.description }}</em></p>
+                {% endif %}
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('edit_property', id=property.id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> {{ _('Edit') }}</a>
+                <a href="{{ url_for('delete_property', id=property.id) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('{{ _('Are you sure?') }}')"><i class="fas fa-trash"></i> {{ _('Delete') }}</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not properties %}
+<div class="text-center mt-5">
+    <div class="card">
+        <div class="card-body">
+            <i class="fas fa-home fa-3x text-muted mb-3"></i>
+            <h5 class="card-title">{{ _('No Properties Yet') }}</h5>
+            <p class="card-text">{{ _('Start by adding your first property to the system.') }}</p>
+            <a href="{{ url_for('add_property') }}" class="btn btn-primary"><i class="fas fa-plus"></i> {{ _('Add Your First Property') }}</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

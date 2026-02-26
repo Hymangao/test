@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-file-signature"></i> {{ title }}</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.property_id.label(class="form-label") }}
+                                {{ form.property_id(class="form-select") }}
+                                {% if form.property_id.errors %}
+                                    {% for error in form.property_id.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {% if 'landlord' in title.lower() %}
+                                    {{ form.landlord_name.label(class="form-label") }}
+                                    {{ form.landlord_name(class="form-control") }}
+                                    {% if form.landlord_name.errors %}
+                                        {% for error in form.landlord_name.errors %}
+                                            <div class="text-danger">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% else %}
+                                    {{ form.tenant_name.label(class="form-label") }}
+                                    {{ form.tenant_name(class="form-control") }}
+                                    {% if form.tenant_name.errors %}
+                                        {% for error in form.tenant_name.errors %}
+                                            <div class="text-danger">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.start_date.label(class="form-label") }}
+                                {{ form.start_date(class="form-control") }}
+                                {% if form.start_date.errors %}
+                                    {% for error in form.start_date.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.end_date.label(class="form-label") }}
+                                {{ form.end_date(class="form-control") }}
+                                {% if form.end_date.errors %}
+                                    {% for error in form.end_date.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.monthly_rent.label(class="form-label") }}
+                                {{ form.monthly_rent(class="form-control") }}
+                                {% if form.monthly_rent.errors %}
+                                    {% for error in form.monthly_rent.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.payment_method.label(class="form-label") }}
+                                {{ form.payment_method(class="form-select") }}
+                                {% if form.payment_method.errors %}
+                                    {% for error in form.payment_method.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.notes.label(class="form-label") }}
+                        {{ form.notes(class="form-control", rows=3) }}
+                        {% if form.notes.errors %}
+                            {% for error in form.notes.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.attachments.label(class="form-label") }}
+                        {{ form.attachments(class="form-control") }}
+                        {% if form.attachments.errors %}
+                            {% for error in form.attachments.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        {{ form.signed(class="form-check-input") }}
+                        {{ form.signed.label(class="form-check-label") }}
+                    </div>
+
+                    {{ form.submit(class="btn btn-primary") }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

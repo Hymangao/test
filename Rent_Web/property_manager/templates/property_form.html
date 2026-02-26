@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Add Property') if 'Add' in title else _('Edit Property') }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-home"></i> {{ _('Add Property') if 'Add' in title else _('Edit Property') }}</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.property_type.label(class="form-label") }}
+                                {{ form.property_type(class="form-select") }}
+                                {% if form.property_type.errors %}
+                                    {% for error in form.property_type.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.area_sqm.label(class="form-label") }}
+                                {{ form.area_sqm(class="form-control") }}
+                                {% if form.area_sqm.errors %}
+                                    {% for error in form.area_sqm.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.bedrooms.label(class="form-label") }}
+                                {{ form.bedrooms(class="form-control") }}
+                                {% if form.bedrooms.errors %}
+                                    {% for error in form.bedrooms.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.bathrooms.label(class="form-label") }}
+                                {{ form.bathrooms(class="form-control") }}
+                                {% if form.bathrooms.errors %}
+                                    {% for error in form.bathrooms.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.description.label(class="form-label") }}
+                        {{ form.description(class="form-control", rows=3) }}
+                        {% if form.description.errors %}
+                            {% for error in form.description.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                {{ form.province.label(class="form-label") }}
+                                {{ form.province(class="form-select") }}
+                                {% if form.province.errors %}
+                                    {% for error in form.province.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                {{ form.city.label(class="form-label") }}
+                                {{ form.city(class="form-select") }}
+                                {% if form.city.errors %}
+                                    {% for error in form.city.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                {{ form.district.label(class="form-label") }}
+                                {{ form.district(class="form-select") }}
+                                {% if form.district.errors %}
+                                    {% for error in form.district.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.detailed_address.label(class="form-label") }}
+                        {{ form.detailed_address(class="form-control") }}
+                        {% if form.detailed_address.errors %}
+                            {% for error in form.detailed_address.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{ _('Full Address Preview') }}</label>
+                        <div class="form-control-plaintext" id="fullAddressPreview"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.monthly_rent_to_tenant.label(class="form-label") }}
+                                {{ form.monthly_rent_to_tenant(class="form-control") }}
+                                {% if form.monthly_rent_to_tenant.errors %}
+                                    {% for error in form.monthly_rent_to_tenant.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.status.label(class="form-label") }}
+                                {{ form.status(class="form-select") }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        var province = document.getElementById("province");
+        var city = document.getElementById("city");
+        var district = document.getElementById("district");
+        var detailedAddress = document.getElementById("detailed_address");
+        var preview = document.getElementById("fullAddressPreview");
+
+        var CITY_MAP = {
+            "北京市": ["北京市"],
+            "上海市": ["上海市"],
+            "天津市": ["天津市"],
+            "重庆市": ["重庆市"],
+            "广东省": ["广州市", "深圳市"],
+            "浙江省": ["杭州市"],
+            "江苏省": ["南京市"],
+            "四川省": ["成都市"]
+        };
+
+        var DISTRICT_MAP = {
+            "北京市": ["朝阳区", "海淀区"],
+            "上海市": ["浦东新区", "黄浦区"],
+            "天津市": ["和平区"],
+            "重庆市": ["渝中区"],
+            "广州市": ["天河区"],
+            "深圳市": ["南山区"],
+            "杭州市": ["西湖区"],
+            "南京市": ["玄武区"],
+            "成都市": ["武侯区", "锦江区"]
+        };
+
+        function setOptions(select, options, keepValue) {
+            if (!select) return;
+            var current = keepValue ? select.value : null;
+            select.innerHTML = "";
+            options.forEach(function (opt) {
+                var option = document.createElement("option");
+                option.value = opt;
+                option.textContent = opt;
+                select.appendChild(option);
+            });
+            if (keepValue && current && options.indexOf(current) !== -1) {
+                select.value = current;
+            }
+        }
+
+        function updateCities(keep) {
+            var provinceValue = province ? province.value : "";
+            var cities = CITY_MAP[provinceValue] || [];
+            setOptions(city, cities, keep);
+        }
+
+        function updateDistricts(keep) {
+            var cityValue = city ? city.value : "";
+            var districts = DISTRICT_MAP[cityValue] || [];
+            setOptions(district, districts, keep);
+        }
+
+        function updatePreview() {
+            var parts = [];
+            if (province && province.value) parts.push(province.value);
+            if (city && city.value) parts.push(city.value);
+            if (district && district.value) parts.push(district.value);
+            if (detailedAddress && detailedAddress.value) parts.push(detailedAddress.value);
+            preview.textContent = parts.join(" ") || "-";
+        }
+
+        if (province) {
+            province.addEventListener("change", function () {
+                updateCities(false);
+                updateDistricts(false);
+                updatePreview();
+            });
+        }
+
+        if (city) {
+            city.addEventListener("change", function () {
+                updateDistricts(false);
+                updatePreview();
+            });
+        }
+
+        [district, detailedAddress].forEach(function (el) {
+            if (el) {
+                el.addEventListener("change", updatePreview);
+                el.addEventListener("input", updatePreview);
+            }
+        });
+
+        updateCities(true);
+        updateDistricts(true);
+        updatePreview();
+    })();
+</script>
+{% endblock %}

@@ -1,0 +1,7 @@
+Flask==3.0.0
+Werkzeug==3.0.0
+Flask-SQLAlchemy==3.0.5
+Flask-WTF==1.2.1
+WTForms==3.1.1
+PyInstaller==6.18.0
+Flask-Babel==4.0.0
