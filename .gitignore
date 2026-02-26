@@ -34,3 +34,5 @@ captures/
 # Test and runtime outputs
 *.log
 htmlcov/
+reports/
+**/reports/
