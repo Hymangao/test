@@ -1,0 +1,36 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Node / Frontend
+node_modules/
+
+# Generic build artifacts
+build/
+dist/
+out/
+tmp/
+temp/
+
+# Java / Kotlin / Android / Gradle
+.gradle/
+*.iml
+local.properties
+.cxx/
+.externalNativeBuild/
+captures/
+
+# Test and runtime outputs
+*.log
+htmlcov/
